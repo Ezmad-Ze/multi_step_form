@@ -1,11 +1,13 @@
-import React from 'react'
-import './App.scss'
-
+import React from "react";
+import "./App.scss";
+import Form_One from "./components/Form_One";
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <div>
+      <Form_One />
+    </div>
+  );
+};
 
-export default App
+export default App;
