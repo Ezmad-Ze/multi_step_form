@@ -1,0 +1,17 @@
+@use "../style/index" as *;
+
+.title {
+  background-color: var(--white);
+  font-weight: var(--font-bold);
+  font-size: x-large;
+  color: var(--marine-blue);
+  padding-bottom: rem(10);
+}
+
+.subtitle {
+  background-color: var(--white);
+  font-weight: var(--font-normal);
+  font-size: rem(17);
+  line-height: rem(25);
+  color: var(--cool-gray);
+}

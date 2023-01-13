@@ -1,3 +1,60 @@
 @use "../style/index" as *;
 
+.form_container {
+  background-color: var(--white);
+  margin-top: -65px;
+  margin-left: rem(15);
+  margin-right: rem(15);
+  padding: rem(30);
+  border-radius: rem(10);
 
+  @include breakpoint(medium) {
+    margin: 60px auto;
+  }
+  .stepone {
+    display: flex;
+    flex-direction: column;
+    padding-top: rem(20);
+    gap: rem(10);
+
+    &__labelanderror {
+      display: flex;
+      justify-content: space-between;
+      .none {
+        display: none;
+      }
+    }
+    label {
+      color: var(--marine-blue);
+      font-size: rem(13);
+    }
+    input {
+      font-family: var(--font-body);
+      border: rem(1) solid var(--light-gray);
+      border-radius: rem(10);
+      font-size: rem(15);
+      padding: rem(12);
+      &::placeholder {
+        letter-spacing: rem(0.5);
+        font-size: rem(15);
+        font-weight: var(--font-bold);
+        color: var(--cool-gray);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    .error {
+      display: block;
+      color: var(--strawberry-red);
+      font-size: rem(13);
+      background-color: var(--white);
+    }
+    .error:focus {
+      border: rem(1) solid var(--strawberry-red);
+    }
+    .active:focus {
+      outline: rem(1) solid var(--purplish-blue);
+    }
+  }
+}

@@ -1,1 +1,14 @@
 @use "../src/style" as *;
+
+.container{
+  border-radius: rem(10);
+
+    @include breakpoint(medium){
+        background-color: var(--white);
+        margin: 50px auto;
+        overflow: hidden;
+        display: flex;
+        gap: 5%;
+        max-width: rem(900);
+    }
+}
