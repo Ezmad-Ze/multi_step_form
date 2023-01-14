@@ -2,10 +2,11 @@ import React from "react";
 import Left_Component from "./Left_Component";
 import "./Form_One.scss";
 import Title from "./Title";
+import Form_Wrapper from "./Form_Wrapper";
 const Form_One = () => {
   const val = true;
   return (
-    <div className="form_container">
+    <Form_Wrapper>
       <Title
         title="Personal info"
         paragraph="Please provide your name, email, address, and phone number"
@@ -45,7 +46,7 @@ const Form_One = () => {
           placeholder="e.g. +1 234 567 890"
         />
       </div>
-    </div>
+    </Form_Wrapper>
   );
 };
 

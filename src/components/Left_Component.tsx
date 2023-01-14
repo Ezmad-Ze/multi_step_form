@@ -1,5 +1,5 @@
 import React from "react";
-import { list } from "../Left";
+import { list } from "../Model";
 import "./Left_Component.scss";
 
 const Left_Component = () => {

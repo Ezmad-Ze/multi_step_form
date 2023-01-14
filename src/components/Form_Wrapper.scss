@@ -1,0 +1,14 @@
+@use "../style/index" as *;
+
+.form_container {
+  background-color: var(--white);
+  margin-top: -65px;
+  margin-left: rem(15);
+  margin-right: rem(15);
+  padding: rem(30);
+  border-radius: rem(10);
+
+  @include breakpoint(medium) {
+    margin: 60px auto;
+  }
+}

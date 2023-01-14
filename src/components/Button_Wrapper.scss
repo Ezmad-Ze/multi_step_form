@@ -1,0 +1,54 @@
+@use "../style/index" as *;
+
+.buttonContainer {
+  display: flex;
+  gap: 4%;
+  width: 100%;
+  padding: rem(23) rem(19);
+  border-radius: rem(10);
+  border: rem(1) solid var(--light-gray);
+  background-color: var(--white);
+  @include breakpoint(medium){
+    flex-direction: column;
+    max-width: rem(300);
+    gap: rem(25);
+    padding: rem(15) rem(15);
+  }
+  &:hover {
+    border: rem(1) solid var(--purplish-blue);
+  }
+  &__image {
+    align-self: flex-start;
+  }
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: rem(7);
+    background-color: var(--white);
+    align-items: start;
+    justify-content: start;
+
+    &--name {
+      background-color: var(--white);
+      font-size: rem(18);
+      font-weight: var(--font-medium);
+      color: var(--marine-blue);
+    }
+    &--price {
+      background-color: var(--white);
+      color: var(--cool-gray);
+      font-size: rem(16);
+    }
+    &--time--active {
+      background-color: var(--white);
+      color: var(--marine-blue);
+      font-size: rem(14);
+      @include breakpoint(medium){
+        font-size: rem(12);
+      }
+    }
+    &--time--disable {
+      display: none;
+    }
+  }
+}
