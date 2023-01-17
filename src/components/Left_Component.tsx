@@ -2,7 +2,11 @@ import React from "react";
 import { list } from "../Model";
 import "./Left_Component.scss";
 
-const Left_Component = () => {
+interface props {
+  currentStep: number;
+}
+
+const Left_Component = ({ currentStep }: props) => {
   return (
     <aside className="aside">
       {list.map((l) => {
@@ -10,7 +14,7 @@ const Left_Component = () => {
           <div key={l.id} className="aside__asideContainer">
             <div
               className={`aside__asideContainer--circle ${
-                l.id === 1 ? "active" : ""
+                l.id === currentStep + 1 ? "active" : ""
               }`}
             >
               {l.id}

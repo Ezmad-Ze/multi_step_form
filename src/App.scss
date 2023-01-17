@@ -1,14 +1,83 @@
 @use "../src/style" as *;
 
-.container{
+.container {
   border-radius: rem(10);
 
-    @include breakpoint(medium){
-        background-color: var(--white);
-        margin: 50px auto;
-        overflow: hidden;
-        display: flex;
-        gap: 5%;
-        max-width: rem(900);
+  @include breakpoint(medium) {
+    background-color: var(--white);
+    margin: 50px auto;
+    overflow: hidden;
+    display: flex;
+    gap: 5%;
+    max-width: rem(900);
+  }
+  &__container {
+    @include breakpoint(medium) {
+      display: flex;
+      flex-direction: column;
+      width: 55%;
     }
+
+    &--nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: rem(20);
+      background-color: var(--white);
+      margin-top: rem(50);
+      width: 100%;
+      @include breakpoint(medium) {
+        margin-top: -50px;
+        padding-top: 0;
+        padding-left: rem(30);
+        padding-right: rem(30);
+        padding-bottom: rem(10);
+      }
+      &--back {
+        border: none;
+        background-color: transparent;
+        font-weight: var(--font-bold);
+        letter-spacing: rem(0.5);
+        font-size: rem(13);
+        color: var(--cool-gray);
+        font-family: var(--font-body);
+        cursor: pointer;
+
+        &:hover {
+          color: var(--marine-blue);
+        }
+      }
+      &--hidden {
+        opacity: 0;
+      }
+      &--next {
+        border: none;
+        justify-self: flex-end;
+        font-family: var(--font-body);
+        padding: rem(13);
+        background-color: var(--marine-blue);
+        color: var(--white);
+        font-weight: var(--font-medium);
+        cursor: pointer;
+        border-radius: rem(5);
+        &:hover {
+          background-color: hsla(213, 96%, 18%, 0.884);
+        }
+      }
+      &--confirm {
+        border: none;
+        justify-self: flex-end;
+        font-family: var(--font-body);
+        padding: rem(13);
+        background-color: var(--purplish-blue);
+        color: var(--white);
+        font-weight: var(--font-medium);
+        cursor: pointer;
+        border-radius: rem(5);
+        &:hover {
+          background-color: hsla(243, 100%, 62%, 0.884);
+        }
+      }
+    }
+  }
 }

@@ -29,7 +29,8 @@ export type buttonType = {
   plan_url:
     | "src/assets/icon-arcade.svg"
     | "src/assets/icon-advanced.svg"
-    | "src/assets/icon-pro.svg";
+    | "src/assets/icon-pro.svg"
+    | "";
   plan_name: string;
   plan_price: number;
   plan_time: "yearly" | "monthly";
@@ -140,3 +141,29 @@ export let checkbox_list: checkboxType[] = [
     checked: false,
   },
 ];
+
+export type data = {
+  name: string;
+  email: string;
+  phone: string;
+  plan: buttonType;
+  addon: checkboxType[];
+};
+
+let buttonStat: buttonType = {
+  plan_id: 0,
+  plan_url: "",
+  plan_name: "",
+  plan_price: 0,
+  plan_time: "yearly",
+};
+
+let addon: checkboxType[] = [];
+
+export let INITIAL_DATA: data = {
+  name: "",
+  email: "",
+  phone: "",
+  plan: buttonStat,
+  addon: addon,
+};
