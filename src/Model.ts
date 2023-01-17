@@ -79,3 +79,64 @@ export let button_list: buttonType[] = [
     plan_time: "yearly",
   },
 ];
+
+//checkbox type
+export type checkboxType = {
+  id: number;
+  title: string;
+  subtitle: string;
+  price: number;
+  timeline: "yearly" | "monthly";
+  checked: boolean;
+};
+
+export let checkbox_list: checkboxType[] = [
+  {
+    id: 1,
+    title: "Online service",
+    subtitle: " Access to multiplayer games",
+    price: 10,
+    timeline: "yearly",
+    checked: false,
+  },
+  {
+    id: 2,
+    title: "Larger storage",
+    subtitle: "Extra 1TB of cloud save",
+    price: 20,
+    timeline: "yearly",
+    checked: false,
+  },
+  {
+    id: 3,
+    title: "Customizable profile",
+    subtitle: "Custom them on your profile",
+    price: 20,
+    timeline: "yearly",
+    checked: false,
+  },
+  {
+    id: 4,
+    title: "Online service",
+    subtitle: " Access to multiplayer games",
+    price: 1,
+    timeline: "monthly",
+    checked: false,
+  },
+  {
+    id: 5,
+    title: "Larger storage",
+    subtitle: "Extra 1TB of cloud save",
+    price: 2,
+    timeline: "monthly",
+    checked: false,
+  },
+  {
+    id: 6,
+    title: "Customizable profile",
+    subtitle: "Custom them on your profile",
+    price: 2,
+    timeline: "monthly",
+    checked: false,
+  },
+];

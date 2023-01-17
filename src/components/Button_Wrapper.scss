@@ -1,5 +1,20 @@
 @use "../style/index" as *;
 
+.wrapper {
+  width: 100%;
+}
+#radio {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+:checked + .buttonContainer {
+  background-color: var(--magnolia);
+  border: rem(1) solid var(--purplish-blue);
+}
+:checked + .buttonContainer + .buttonContainer__right--name {
+  background-color: var(--magnolia);
+}
 .buttonContainer {
   display: flex;
   gap: 4%;
@@ -8,7 +23,8 @@
   border-radius: rem(10);
   border: rem(1) solid var(--light-gray);
   background-color: var(--white);
-  @include breakpoint(medium){
+  cursor: pointer;
+  @include breakpoint(medium) {
     flex-direction: column;
     max-width: rem(300);
     gap: rem(25);
@@ -17,6 +33,13 @@
   &:hover {
     border: rem(1) solid var(--purplish-blue);
   }
+  &:focus {
+    border: rem(1) solid var(--purplish-blue);
+  }
+  &:active {
+    border: rem(1) solid var(--purplish-blue);
+  }
+
   &__image {
     align-self: flex-start;
   }
@@ -24,26 +47,25 @@
     display: flex;
     flex-direction: column;
     gap: rem(7);
-    background-color: var(--white);
     align-items: start;
     justify-content: start;
 
     &--name {
-      background-color: var(--white);
+      background-color: transparent;
       font-size: rem(18);
       font-weight: var(--font-medium);
       color: var(--marine-blue);
     }
     &--price {
-      background-color: var(--white);
+      background-color: transparent;
       color: var(--cool-gray);
       font-size: rem(16);
     }
     &--time--active {
-      background-color: var(--white);
+      background-color: transparent;
       color: var(--marine-blue);
       font-size: rem(14);
-      @include breakpoint(medium){
+      @include breakpoint(medium) {
         font-size: rem(12);
       }
     }

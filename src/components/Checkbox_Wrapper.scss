@@ -1,0 +1,65 @@
+@use "../style/index" as *;
+
+#check {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+:checked ~ .checkboxContainer {
+  background-color: var(--magnolia);
+  border: rem(1) solid var(--purplish-blue);
+}
+:checked ~ .checkboxContainer .checkboxContainer__check--square {
+  background-color: var(--purplish-blue);
+}
+
+.checkboxContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: rem(1) solid var(--light-gray);
+  border-radius: rem(10);
+  padding: rem(15);
+  &__check {
+    display: flex;
+    flex-direction: row;
+    gap: rem(20);
+    &--square {
+      display: flex;
+      align-self: center;
+      width: rem(16);
+      height: rem(16);
+      border: rem(1) solid var(--light-gray);
+      border-radius: rem(5);
+      img {
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+    &--label {
+      display: flex;
+      flex-direction: column;
+      &--title {
+        background-color: transparent;
+        font-weight: var(--font-medium);
+        font-size: rem(16);
+        letter-spacing: -0.5px;
+        color: var(--marine-blue);
+      }
+      &--subtitle {
+        background-color: transparent;
+        font-weight: var(--font-normal);
+        font-size: rem(14);
+        letter-spacing: -0.5px;
+        color: var(--light-gray);
+      }
+    }
+  }
+  &__price {
+    background-color: transparent;
+    font-size: rem(14);
+    color: var(--purplish-blue);
+  }
+}

@@ -6,18 +6,25 @@ import Form_Wrapper from "./Form_Wrapper";
 import Title from "./Title";
 import Switch from "react-switch";
 
+interface props {
+  time: string;
+  setTime: React.Dispatch<React.SetStateAction<string>>;
+}
 
-const Form_Two = () => {
-  const [time, setTime] = useState("monthly")
-  // const time: string = "monthly";
+const Form_Two = ({ time, setTime }: props) => {
   const changeTime = (): boolean => {
-    if (time === "yearly"){
-      setTime("monthly")
+    if (time === "yearly") {
+      setTime("monthly");
       return false;
-    } 
-    setTime("yearly")     
+    }
+    setTime("yearly");
     return true;
   };
+
+  const handleClick = (price: number): void => {
+    console.log(price);
+  };
+
   return (
     <Form_Wrapper>
       <Title
@@ -34,12 +41,15 @@ const Form_Two = () => {
               name={filteredButton.plan_name}
               price={filteredButton.plan_price}
               time={filteredButton.plan_time}
+              handleClick={handleClick}
             />
           ))}
       </div>
       <div className="switch">
         <div className="switch__container">
-          <label>Monthly</label>
+          <label className={`time ${time === "monthly" && "time-active"}`}>
+            Monthly
+          </label>
           <Switch
             onChange={changeTime}
             checked={time === "yearly"}
@@ -52,10 +62,12 @@ const Form_Two = () => {
             width={50}
             uncheckedIcon={false}
             checkedIcon={false}
-            className = "switch__container--switcher"
-            // borderRadius={6}
+            className="switch__container--switcher"
+            aria-labelledby="switch-label"
           />
-          <label>Yearly</label>
+          <label className={`time ${time === "yearly" && "time-active"}`}>
+            Yearly
+          </label>
         </div>
       </div>
     </Form_Wrapper>

@@ -1,0 +1,11 @@
+@use "../style/index" as *;
+
+.checkbox{
+    display: flex;
+    flex-direction: column;
+    margin-top: rem(20);
+    gap: rem(15);
+    @include breakpoint(medium){
+        margin-top: rem(25);
+    }
+}
