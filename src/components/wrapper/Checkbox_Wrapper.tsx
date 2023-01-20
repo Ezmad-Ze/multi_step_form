@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./Checkbox_Wrapper.scss";
 
 interface props {
@@ -18,19 +17,20 @@ const Checkbox_Wrapper = ({
   timeline,
   handleOnChange,
 }: props) => {
+  //to add the proper value for the time
   const checkTimeline = (timeline: string): string => {
     if (timeline === "yearly") return "yr";
     return "mo";
   };
   return (
     <label className="check--label">
-      {/* <div className="checkboxContainer__check"> */}
       <input
         type="checkbox"
         name="check"
         id="check"
         onChange={() => handleOnChange(id)}
       />
+
       <div className="checkboxContainer">
         <div className="checkboxContainer__check">
           <div className="checkboxContainer__check--square">
@@ -43,8 +43,6 @@ const Checkbox_Wrapper = ({
             </p>
           </div>
         </div>
-
-        {/* </div> */}
 
         <span className="checkboxContainer__price">
           +${price}/{checkTimeline(timeline)}

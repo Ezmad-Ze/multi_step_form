@@ -1,23 +1,50 @@
 import React from "react";
+import { buttonType } from "../Model";
 import "./Button_Wrapper.scss";
 
 interface props {
+  id: number;
   url: string;
   name: string;
   time: string;
   price: number;
-  handleClick: (price: number) => void;
+  planID: number;
+  handleClick: (
+    plan_id: number,
+    plan_url: string,
+    plan_name: string,
+    plan_price: number,
+    plan_time: string
+  ) => void;
 }
 
-const Button_Wrapper = ({ url, name, time, price, handleClick }: props) => {
+const Button_Wrapper = ({
+  id,
+  url,
+  name,
+  time,
+  price,
+  handleClick,
+  planID,
+}: props) => {
+  //to add the proper time
   const checkTimeline = (timeline: string): string => {
     if (timeline === "yearly") return "yr";
     return "mo";
   };
+
   return (
     <label className="wrapper">
-      <input type="radio" name="radio" id="radio" />
-      <div className="buttonContainer" onClick={() => handleClick(price)}>
+      <input
+        type="radio"
+        name="radio"
+        id="radio"
+        defaultChecked={planID === id}
+      />
+      <div
+        className="buttonContainer"
+        onClick={() => handleClick(id, url, name, price, time)}
+      >
         <img src={url} alt={name} className="buttonContainer__image" />
         <div className="buttonContainer__right">
           <h3 className="buttonContainer__right--name">{name}</h3>

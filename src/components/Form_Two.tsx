@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import { button_list } from "../Model";
-import Button_Wrapper from "./Button_Wrapper";
+import Button_Wrapper from "./wrapper/Button_Wrapper";
 import "./Form_Two.scss";
-import Form_Wrapper from "./Form_Wrapper";
+import Form_Wrapper from "./wrapper/Form_Wrapper";
 import Title from "./Title";
 import Switch from "react-switch";
 
-interface props {
+interface FormTwo {
   time: string;
   setTime: React.Dispatch<React.SetStateAction<string>>;
+  plan_id: number;
+  plan_url: string;
+  plan_name: string;
+  plan_price: number;
+  plan_time: string;
 }
 
-const Form_Two = ({ time, setTime }: props) => {
+type props = FormTwo & {
+  update: (fields: Partial<FormTwo>) => void;
+};
+
+const Form_Two = ({ time, setTime, plan_id, update }: props) => {
+  //to add the changed time
   const changeTime = (): boolean => {
     if (time === "yearly") {
       setTime("monthly");
@@ -21,8 +31,19 @@ const Form_Two = ({ time, setTime }: props) => {
     return true;
   };
 
-  const handleClick = (price: number): void => {
-    console.log(price);
+  //to update and sav the result
+  const handleClick = (
+    id: number,
+    url: string,
+    name: string,
+    price: number,
+    time: string
+  ): void => {
+    update({ plan_id: id });
+    update({ plan_url: url });
+    update({ plan_name: name });
+    update({ plan_price: price });
+    update({ plan_time: time });
   };
 
   return (
@@ -37,6 +58,8 @@ const Form_Two = ({ time, setTime }: props) => {
           .map((filteredButton) => (
             <Button_Wrapper
               key={filteredButton.plan_id}
+              id={filteredButton.plan_id}
+              planID={plan_id}
               url={filteredButton.plan_url}
               name={filteredButton.plan_name}
               price={filteredButton.plan_price}

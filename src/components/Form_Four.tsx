@@ -1,6 +1,6 @@
 import React from "react";
 import "./Form_Four.scss";
-import Form_Wrapper from "./Form_Wrapper";
+import Form_Wrapper from "./wrapper/Form_Wrapper";
 import Title from "./Title";
 
 const Form_Four = () => {

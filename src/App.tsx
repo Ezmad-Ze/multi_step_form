@@ -6,27 +6,45 @@ import Form_Three from "./components/Form_Three";
 import Form_Two from "./components/Form_Two";
 import Left_Component from "./components/Left_Component";
 import useMultiStepForm from "./hooks/useMultiStepForm";
-import { checkboxType } from "./Model";
+import { checkboxType, Data, INITIAL_STATE } from "./Model";
 
 const App = () => {
+  const [data, setData] = useState<Data>(INITIAL_STATE);
   const [time, setTime] = useState("monthly");
   const [checkedValues, setCheckedValues] = useState<checkboxType[]>([]);
 
+  const updateFields = (fields: Partial<Data>) => {
+    setData((prev) => {
+      return { ...prev, ...fields };
+    });
+  };
+
   const { steps, step, isFirst, isLast, currentStep, next, back } =
     useMultiStepForm([
-      <Form_One />,
-      <Form_Two time={time} setTime={setTime} />,
+      <Form_One {...data} update={updateFields} />,
+      <Form_Two
+        time={time}
+        setTime={setTime}
+        {...data}
+        update={updateFields}
+      />,
       <Form_Three
         time={time}
         checkedValues={checkedValues}
         setCheckedValues={setCheckedValues}
+        {...data}
+        update={updateFields}
       />,
       <Form_Four />,
     ]);
+
+    console.log(checkedValues)
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    next();
+    !isLast ? next() : setData(INITIAL_STATE);
   };
+
+  console.log(data);
   return (
     <div className="container">
       <Left_Component currentStep={currentStep} />

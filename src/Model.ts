@@ -142,28 +142,29 @@ export let checkbox_list: checkboxType[] = [
   },
 ];
 
-export type data = {
+//the full data types
+export type Data = {
   name: string;
   email: string;
   phone: string;
-  plan: buttonType;
+  plan_id: number;
+  plan_url: string;
+  plan_name: string;
+  plan_price: number;
+  plan_time: string;
   addon: checkboxType[];
-};
-
-let buttonStat: buttonType = {
-  plan_id: 0,
-  plan_url: "",
-  plan_name: "",
-  plan_price: 0,
-  plan_time: "yearly",
 };
 
 let addon: checkboxType[] = [];
 
-export let INITIAL_DATA: data = {
+export let INITIAL_STATE: Data = {
   name: "",
   email: "",
   phone: "",
-  plan: buttonStat,
+  plan_id: 0,
+  plan_url: "",
+  plan_name: "",
+  plan_price: 0,
+  plan_time: "monthly",
   addon: addon,
 };
