@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Checkbox_Wrapper from "./wrapper/Checkbox_Wrapper";
+import Checkbox_Wrapper from "../components/Wrapper/Checkbox_Wrapper";
 import { checkboxType, checkbox_list } from "../Model";
 import "./Form_Three.scss";
-import Form_Wrapper from "./wrapper/Form_Wrapper";
+import Form_Wrapper from "../components/Wrapper/Form_Wrapper";
 import Title from "./Title";
 
 interface FormThree {

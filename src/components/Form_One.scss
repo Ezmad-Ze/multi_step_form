@@ -25,6 +25,7 @@
     padding: rem(12);
     color: var(--marine-blue);
     font-weight: var(--font-medium);
+    cursor: pointer;
     &::placeholder {
       letter-spacing: rem(0.5);
       font-size: rem(15);
@@ -41,8 +42,11 @@
     font-size: rem(13);
     background-color: var(--white);
   }
-  .error:focus {
+  .error-outline {
     border: rem(1) solid var(--strawberry-red);
+  }
+  .error-outline:focus {
+    border: rem(1) solid var(--light-gray);
   }
   .active:focus {
     outline: rem(1) solid var(--purplish-blue);

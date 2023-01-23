@@ -1,19 +1,35 @@
 import "./Form_One.scss";
 import Title from "./Title";
-import Form_Wrapper from "./wrapper/Form_Wrapper";
+import Form_Wrapper from "../components/Wrapper/Form_Wrapper";
 
 interface FormOne {
   name: string;
   email: string;
   phone: string;
+  msgName: string;
+  msgEmail: string;
+  msgPhone: string;
+  new_name: boolean;
+  new_email: boolean;
+  new_phone: boolean;
 }
 
 type props = FormOne & {
   update: (fields: Partial<FormOne>) => void;
 };
 
-const Form_One = ({ name, email, phone, update }: props) => {
-  const val = true;
+const Form_One = ({
+  name,
+  email,
+  phone,
+  update,
+  msgName,
+  msgEmail,
+  msgPhone,
+  new_name,
+  new_email,
+  new_phone,
+}: props) => {
   return (
     <Form_Wrapper>
       <Title
@@ -23,39 +39,48 @@ const Form_One = ({ name, email, phone, update }: props) => {
       <div className="stepone">
         <div className="stepone__labelanderror">
           <label htmlFor="name">Name</label>
-          <p className={`${val ? "none" : "error"}`}>This field is required</p>
+          <p className={`${new_name ? "none" : "error"}`}>{msgName}</p>
         </div>
         <input
           type="text"
           name="name"
           id="name"
-          className={`${val ? "active" : "error"}`}
+          required
+          autoComplete="off"
+          className={`${new_name ? "active" : "error-outline"}`}
           placeholder="e.g. Stephen King"
           value={name}
-          onChange={(e) => update({ name: e.target.value })}
+          onChange={(e) => {
+            update({ name: e.target.value });
+          }}
         />
         <div className="stepone__labelanderror">
           <label htmlFor="email">Email</label>
-          <p className={`${val ? "none" : "error"}`}>This field is required</p>
+          <p className={`${new_email ? "none" : "error"}`}>{msgEmail}</p>
         </div>
         <input
           type="email"
           name="email"
           id="email"
-          className={`${val ? "active" : "error"}`}
+          autoComplete="off"
+          className={`${new_email ? "active" : "error-outline"}`}
           placeholder="e.g. stephenking@lorem.com"
           value={email}
-          onChange={(e) => update({ email: e.target.value })}
+          onChange={(e) => {
+            update({ email: e.target.value });
+          }}
         />
         <div className="stepone__labelanderror">
           <label htmlFor="phone">Phone Number</label>
-          <p className={`${val ? "none" : "error"}`}>This field is required</p>
+          <p className={`${new_phone ? "none" : "error"}`}>{msgPhone}</p>
         </div>
         <input
           type="tel"
           name="pone"
           id="phone"
-          className={`${val ? "active" : "error"}`}
+          autoComplete="off"
+          required
+          className={`${new_phone ? "active" : "error-outline"}`}
           placeholder="e.g. +1 234 567 890"
           value={phone}
           onChange={(e) => update({ phone: e.target.value })}

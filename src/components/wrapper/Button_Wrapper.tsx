@@ -1,5 +1,5 @@
 import React from "react";
-import { buttonType } from "../Model";
+import { buttonType } from "../../Model";
 import "./Button_Wrapper.scss";
 
 interface props {

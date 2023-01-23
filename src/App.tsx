@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import "./App.scss";
 import Form_Four from "./components/Form_Four";
 import Form_One from "./components/Form_One";
@@ -6,22 +6,41 @@ import Form_Three from "./components/Form_Three";
 import Form_Two from "./components/Form_Two";
 import Left_Component from "./components/Left_Component";
 import useMultiStepForm from "./hooks/useMultiStepForm";
-import { checkboxType, Data, INITIAL_STATE } from "./Model";
+import {
+  checkboxType,
+  checkError,
+  Data,
+  emailPattern,
+  ERROR,
+  INITIAL_STATE,
+  required,
+  REQUIRED_STATE,
+} from "./Model";
 
 const App = () => {
   const [data, setData] = useState<Data>(INITIAL_STATE);
   const [time, setTime] = useState("monthly");
   const [checkedValues, setCheckedValues] = useState<checkboxType[]>([]);
+  const [errorMsg, seterrorMsg] = useState<required>(REQUIRED_STATE);
+  const [errorTest, setErrorTest] = useState<checkError>(ERROR);
+  const Emailreg = new RegExp(emailPattern);
 
+  //to update form fields
   const updateFields = (fields: Partial<Data>) => {
     setData((prev) => {
       return { ...prev, ...fields };
     });
   };
 
+  //add the forms
   const { steps, step, isFirst, isLast, currentStep, next, back } =
     useMultiStepForm([
-      <Form_One {...data} update={updateFields} />,
+      <Form_One
+        {...data}
+        update={updateFields}
+        {...errorMsg}
+        {...errorTest}
+      />,
       <Form_Two
         time={time}
         setTime={setTime}
@@ -38,13 +57,73 @@ const App = () => {
       <Form_Four />,
     ]);
 
-    console.log(checkedValues)
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    !isLast ? next() : setData(INITIAL_STATE);
+    console.log(data)
+
+  //handle validation
+  const handleValidation = () => {
+    if (data.name.length === 0) {
+      setErrorTest((prev) => ({ ...prev, new_name: !prev }));
+      seterrorMsg((prev) => ({
+        ...prev,
+        msgName: "This field is required",
+      }));
+    } else {
+      setErrorTest((prev) => ({ ...prev, new_name: true }));
+    }
+    if (data.email.length === 0) {
+      setErrorTest((prev) => ({ ...prev, new_email: !prev }));
+      seterrorMsg((prev) => ({
+        ...prev,
+        msgEmail: "This field is required",
+      }));
+    } else if (!Emailreg.test(data.email)) {
+      setErrorTest((prev) => ({ ...prev, new_phone: false }));
+      seterrorMsg((prev) => ({
+        ...prev,
+        msgEmail: "This field requires email",
+      }));
+    } else {
+      setErrorTest((prev) => ({ ...prev, new_email: true }));
+    }
+    if (data.phone.length === 0) {
+      setErrorTest((prev) => ({ ...prev, new_phone: false }));
+      seterrorMsg((prev) => ({
+        ...prev,
+        msgPhone: "This field is required",
+      }));
+    } else if (isNaN(Number(data.phone))) {
+      setErrorTest((prev) => ({ ...prev, new_phone: false }));
+      seterrorMsg((prev) => ({
+        ...prev,
+        msgPhone: "This field requires number",
+      }));
+    } else {
+      setErrorTest((prev) => ({ ...prev, new_phone: true }));
+    }
   };
 
-  console.log(data);
+  //handle the submittion
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (
+      data.name.length != 0 &&
+      data.email.length != 0 &&
+      data.phone.length != 0 &&
+      !isNaN(Number(data.phone)) &&
+      Emailreg.test(data.email)
+    ) {
+      setErrorTest((prev) => ({
+        ...prev,
+        new_name: true,
+        new_email: true,
+        new_phone: true,
+      }));
+      !isLast ? next() : setData(INITIAL_STATE);
+    } else {
+      handleValidation();
+    }
+  };
+
   return (
     <div className="container">
       <Left_Component currentStep={currentStep} />

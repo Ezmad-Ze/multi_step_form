@@ -161,10 +161,40 @@ export let INITIAL_STATE: Data = {
   name: "",
   email: "",
   phone: "",
-  plan_id: 0,
-  plan_url: "",
-  plan_name: "",
-  plan_price: 0,
+  plan_id: 1,
+  plan_url: "src/assets/icon-arcade.svg",
+  plan_name: "Arcade",
+  plan_price: 9,
   plan_time: "monthly",
   addon: addon,
 };
+
+//check error
+export type checkError = {
+  new_name: boolean;
+  new_email: boolean;
+  new_phone: boolean;
+};
+
+export let ERROR: checkError = {
+  new_name: true,
+  new_email: true,
+  new_phone: true,
+};
+
+//error messages
+export type required = {
+  msgName: string;
+  msgEmail: string;
+  msgPhone: string;
+};
+
+export let REQUIRED_STATE: required = {
+  msgName: "",
+  msgEmail: "",
+  msgPhone: "",
+};
+
+//email pattern
+export const emailPattern =
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

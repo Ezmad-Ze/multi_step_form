@@ -1,8 +1,8 @@
 import React from "react";
 import { button_list } from "../Model";
-import Button_Wrapper from "./wrapper/Button_Wrapper";
+import Button_Wrapper from "../components/wrapper/Button_Wrapper";
 import "./Form_Two.scss";
-import Form_Wrapper from "./wrapper/Form_Wrapper";
+import Form_Wrapper from "../components/Wrapper/Form_Wrapper";
 import Title from "./Title";
 import Switch from "react-switch";
 
@@ -24,14 +24,26 @@ const Form_Two = ({ time, setTime, plan_id, update }: props) => {
   //to add the changed time
   const changeTime = (): boolean => {
     if (time === "yearly") {
+      //default value
+      update({ plan_id: 1 });
+      update({ plan_url: "src/assets/icon-arcade.svg" });
+      update({ plan_name: "Arcade" });
+      update({ plan_price: 9 });
+      update({ plan_time: "monthly" });
       setTime("monthly");
       return false;
     }
+    //default value
+    update({ plan_id: 4 });
+    update({ plan_url: "src/assets/icon-arcade.svg" });
+    update({ plan_name: "Arcade" });
+    update({ plan_price: 90 });
+    update({ plan_time: "yearly" });
     setTime("yearly");
     return true;
   };
 
-  //to update and sav the result
+  //to update and save the result
   const handleClick = (
     id: number,
     url: string,
