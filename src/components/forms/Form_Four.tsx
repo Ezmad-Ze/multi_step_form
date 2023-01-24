@@ -1,32 +1,22 @@
 import React from "react";
 import "./Form_Four.scss";
-import Form_Wrapper from "../components/wrapper/Form_Wrapper";
-import Title from "./Title";
-import { checkboxType } from "../Model";
+import Form_Wrapper from "../wrapper/Form_Wrapper";
+import Title from "../Title";
+import { checkboxType } from "../../Model";
 
 interface props {
-  name: string;
-  email: string;
-  phone: string;
-  plan_id: number;
   plan_name: string;
   plan_price: number;
   plan_time: string;
   addon: checkboxType[];
-  test: void;
   change: () => void;
 }
 
 const Form_Four = ({
-  name,
-  email,
-  phone,
-  plan_id,
   plan_name,
   plan_price,
   plan_time,
   addon,
-  test,
   change,
 }: props) => {
   //to display the full time name
@@ -40,7 +30,6 @@ const Form_Four = ({
     return "Year";
   };
   const TotalSummation = () => {
-    let init_sum = 0;
     let arr = [];
     addon.map((add) => arr.push(add.price));
     arr.push(plan_price);

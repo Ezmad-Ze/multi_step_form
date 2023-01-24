@@ -1,0 +1,139 @@
+@use "../style/index" as *;
+
+.container__container {
+  @include breakpoint(medium) {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+  }
+  // &--nav {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   padding: rem(20);
+  //   background-color: var(--white);
+  //   margin-top: rem(50);
+  //   width: 100%;
+  //   @include breakpoint(medium) {
+  //     margin-top: -50px;
+  //     padding-top: 0;
+  //     padding-left: rem(30);
+  //     padding-right: rem(30);
+  //     padding-bottom: rem(10);
+  //   }
+  //   &--back {
+  //     border: none;
+  //     background-color: transparent;
+  //     font-weight: var(--font-bold);
+  //     letter-spacing: rem(0.5);
+  //     font-size: rem(13);
+  //     color: var(--cool-gray);
+  //     font-family: var(--font-body);
+  //     cursor: pointer;
+  //     &:hover {
+  //       color: var(--marine-blue);
+  //     }
+  //   }
+  //   &--hidden {
+  //     // opacity: 0;
+  //     // cursor: not-allowed;
+  //     display: none;
+  //   }
+  //   &--next {
+  //     border: none;
+  //     font-family: var(--font-body);
+  //     padding: rem(13);
+  //     background-color: var(--marine-blue);
+  //     color: var(--white);
+  //     font-weight: var(--font-medium);
+  //     cursor: pointer;
+  //     border-radius: rem(5);
+  //     &:hover {
+  //       background-color: hsla(213, 96%, 18%, 0.884);
+  //     }
+  //   }
+  //   &--confirm {
+  //     border: none;
+  //     justify-self: flex-end;
+  //     font-family: var(--font-body);
+  //     padding: rem(13);
+  //     background-color: var(--purplish-blue);
+  //     color: var(--white);
+  //     font-weight: var(--font-medium);
+  //     cursor: pointer;
+  //     border-radius: rem(5);
+  //     &:hover {
+  //       background-color: hsla(243, 100%, 62%, 0.884);
+  //     }
+  //   }
+  // }
+  &--nav {
+    display: grid;
+    grid-template-columns: 0.4fr 0.4fr;
+    background-color: var(--white);
+    padding: rem(20);
+    margin-top: rem(50);
+    justify-content: space-between;
+    @include breakpoint(medium) {
+      margin-top: -50px;
+      padding-top: 0;
+      padding-left: rem(30);
+      padding-right: rem(30);
+      padding-bottom: rem(10);
+    }
+    &--back {
+      border: none;
+      background-color: transparent;
+      font-weight: var(--font-bold);
+      letter-spacing: rem(0.5);
+      font-size: rem(13);
+      color: var(--cool-gray);
+      font-family: var(--font-body);
+      cursor: pointer;
+      grid-column-start: 1;
+      width: rem(100);
+      justify-self: center;
+      &:hover {
+        color: var(--marine-blue);
+      }
+    }
+    &--hidden {
+      // opacity: 0;
+      // cursor: not-allowed;
+      display: none;
+    }
+    &--next {
+      border: none;
+      font-family: var(--font-body);
+      padding: rem(13);
+      background-color: var(--marine-blue);
+      color: var(--white);
+      font-weight: var(--font-medium);
+      cursor: pointer;
+      border-radius: rem(5);
+      width: rem(100);
+      justify-self: center;
+      grid-column-start: 2;
+      &:hover {
+        background-color: hsla(213, 96%, 18%, 0.884);
+      }
+    }
+    &--confirm {
+      border: none;
+      justify-self: flex-end;
+      font-family: var(--font-body);
+      padding: rem(13);
+      background-color: var(--purplish-blue);
+      color: var(--white);
+      font-weight: var(--font-medium);
+      cursor: pointer;
+      border-radius: rem(5);
+      width: rem(100);
+      justify-self: center;
+      grid-column-start: 2;
+      &:hover {
+        background-color: hsla(243, 100%, 62%, 0.884);
+      }
+    }
+  }
+}

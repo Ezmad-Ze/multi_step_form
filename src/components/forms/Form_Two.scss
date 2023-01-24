@@ -1,4 +1,4 @@
-@use "../style/index" as *;
+@use "../../style/index" as *;
 
 .button {
   margin-top: rem(10);
@@ -26,10 +26,10 @@
     background-color: var(--magnolia);
   }
 }
-.time{
+.time {
   font-weight: var(--font-medium);
   color: var(--cool-gray);
 }
-.time-active{
+.time-active {
   color: var(--marine-blue);
 }

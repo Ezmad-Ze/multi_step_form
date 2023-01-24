@@ -1,0 +1,23 @@
+@use "../style/index" as *;
+
+.thank_you {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: rem(40);
+  &__title {
+    font-weight: var(--font-bold);
+    font-size: rem(25);
+    color: var(--marine-blue);
+  }
+  &__text {
+    background-color: transparent;
+    color: var(--cool-gray);
+    font-size: rem(17);
+    text-align: center;
+    line-height: rem(25);
+    padding-bottom: rem(25);
+    margin-top: -20px;
+  }
+}

@@ -1,6 +1,6 @@
 import "./Form_One.scss";
-import Title from "./Title";
-import Form_Wrapper from "../components/Wrapper/Form_Wrapper";
+import Title from "../Title";
+import Form_Wrapper from "../wrapper/Form_Wrapper";
 
 interface FormOne {
   name: string;

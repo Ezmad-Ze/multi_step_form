@@ -1,9 +1,9 @@
 import React from "react";
-import { button_list } from "../Model";
-import Button_Wrapper from "../components/wrapper/Button_Wrapper";
+import { button_list } from "../../Model";
+import Button_Wrapper from "../wrapper/Button_Wrapper";
 import "./Form_Two.scss";
-import Form_Wrapper from "../components/wrapper/Form_Wrapper";
-import Title from "./Title";
+import Form_Wrapper from "../wrapper/Form_Wrapper";
+import Title from "../Title";
 import Switch from "react-switch";
 
 interface FormTwo {
