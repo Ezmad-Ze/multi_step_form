@@ -17,11 +17,7 @@ const Checkbox_Wrapper = ({
   timeline,
   handleOnChange,
 }: props) => {
-  //to add the proper value for the time
-  const checkTimeline = (timeline: string): string => {
-    if (timeline === "yearly") return "yr";
-    return "mo";
-  };
+
   return (
     <label className="check--label">
       <input
@@ -45,7 +41,7 @@ const Checkbox_Wrapper = ({
         </div>
 
         <span className="checkboxContainer__price">
-          +${price}/{checkTimeline(timeline)}
+          +${price}/{timeline}
         </span>
       </div>
     </label>

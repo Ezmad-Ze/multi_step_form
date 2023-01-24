@@ -2,7 +2,7 @@ import React from "react";
 import { button_list } from "../Model";
 import Button_Wrapper from "../components/wrapper/Button_Wrapper";
 import "./Form_Two.scss";
-import Form_Wrapper from "../components/Wrapper/Form_Wrapper";
+import Form_Wrapper from "../components/wrapper/Form_Wrapper";
 import Title from "./Title";
 import Switch from "react-switch";
 
@@ -23,14 +23,14 @@ type props = FormTwo & {
 const Form_Two = ({ time, setTime, plan_id, update }: props) => {
   //to add the changed time
   const changeTime = (): boolean => {
-    if (time === "yearly") {
+    if (time === "yr") {
       //default value
       update({ plan_id: 1 });
       update({ plan_url: "src/assets/icon-arcade.svg" });
       update({ plan_name: "Arcade" });
       update({ plan_price: 9 });
-      update({ plan_time: "monthly" });
-      setTime("monthly");
+      update({ plan_time: "mo" });
+      setTime("mo");
       return false;
     }
     //default value
@@ -38,8 +38,8 @@ const Form_Two = ({ time, setTime, plan_id, update }: props) => {
     update({ plan_url: "src/assets/icon-arcade.svg" });
     update({ plan_name: "Arcade" });
     update({ plan_price: 90 });
-    update({ plan_time: "yearly" });
-    setTime("yearly");
+    update({ plan_time: "yr" });
+    setTime("yr");
     return true;
   };
 
@@ -87,7 +87,7 @@ const Form_Two = ({ time, setTime, plan_id, update }: props) => {
           </label>
           <Switch
             onChange={changeTime}
-            checked={time === "yearly"}
+            checked={time === "yr"}
             handleDiameter={13}
             offColor="#02295a"
             onColor="#02295a"

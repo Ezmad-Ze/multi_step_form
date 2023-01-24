@@ -19,10 +19,11 @@ import {
 
 const App = () => {
   const [data, setData] = useState<Data>(INITIAL_STATE);
-  const [time, setTime] = useState("monthly");
+  const [time, setTime] = useState("mo");
   const [checkedValues, setCheckedValues] = useState<checkboxType[]>([]);
   const [errorMsg, seterrorMsg] = useState<required>(REQUIRED_STATE);
   const [errorTest, setErrorTest] = useState<checkError>(ERROR);
+  const [test, setTest] = useState(() => {});
   const Emailreg = new RegExp(emailPattern);
 
   //to update form fields
@@ -31,33 +32,33 @@ const App = () => {
       return { ...prev, ...fields };
     });
   };
-
+  //goto the plan form
+  const changeForm = () => {
+    goto(1);
+  };
   //add the forms
-  const { steps, step, isFirst, isLast, currentStep, next, back } =
-    useMultiStepForm([
-      <Form_One
-        {...data}
-        update={updateFields}
-        {...errorMsg}
-        {...errorTest}
-      />,
-      <Form_Two
-        time={time}
-        setTime={setTime}
-        {...data}
-        update={updateFields}
-      />,
-      <Form_Three
-        time={time}
-        checkedValues={checkedValues}
-        setCheckedValues={setCheckedValues}
-        {...data}
-        update={updateFields}
-      />,
-      <Form_Four />,
-    ]);
-
-    console.log(data)
+  const {
+    goto,
+    steps,
+    step,
+    isFirst,
+    isLast,
+    currentStep,
+    setCurrentStep,
+    next,
+    back,
+  } = useMultiStepForm([
+    <Form_One {...data} update={updateFields} {...errorMsg} {...errorTest} />,
+    <Form_Two time={time} setTime={setTime} {...data} update={updateFields} />,
+    <Form_Three
+      time={time}
+      checkedValues={checkedValues}
+      setCheckedValues={setCheckedValues}
+      {...data}
+      update={updateFields}
+    />,
+    <Form_Four {...data} test={test} change={changeForm} />,
+  ]);
 
   //handle validation
   const handleValidation = () => {
@@ -77,7 +78,7 @@ const App = () => {
         msgEmail: "This field is required",
       }));
     } else if (!Emailreg.test(data.email)) {
-      setErrorTest((prev) => ({ ...prev, new_phone: false }));
+      setErrorTest((prev) => ({ ...prev, new_email: false }));
       seterrorMsg((prev) => ({
         ...prev,
         msgEmail: "This field requires email",

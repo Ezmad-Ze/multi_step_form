@@ -14,7 +14,11 @@ const useMultiStepForm = (steps: ReactElement[]) => {
       return steps.length - 1 <= 0 ? prev : prev - 1;
     });
   };
+  const goto = (val: number) => {
+    setCurrentStep(val);
+  };
   return {
+    goto,
     steps,
     step: steps[currentStep],
     isFirst: currentStep === 0,

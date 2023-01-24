@@ -27,12 +27,6 @@ const Button_Wrapper = ({
   handleClick,
   planID,
 }: props) => {
-  //to add the proper time
-  const checkTimeline = (timeline: string): string => {
-    if (timeline === "yearly") return "yr";
-    return "mo";
-  };
-
   return (
     <label className="wrapper">
       <input
@@ -49,11 +43,11 @@ const Button_Wrapper = ({
         <div className="buttonContainer__right">
           <h3 className="buttonContainer__right--name">{name}</h3>
           <p className="buttonContainer__right--price">
-            ${price}/{checkTimeline(time)}
+            ${price}/{time}
           </p>
           <p
             className={`${
-              time === "yearly"
+              time === "yr"
                 ? "buttonContainer__right--time--active"
                 : "buttonContainer__right--time--disable"
             }`}

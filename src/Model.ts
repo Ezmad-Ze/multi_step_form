@@ -33,7 +33,7 @@ export type buttonType = {
     | "";
   plan_name: string;
   plan_price: number;
-  plan_time: "yearly" | "monthly";
+  plan_time: "yr" | "mo";
 };
 
 export let button_list: buttonType[] = [
@@ -42,42 +42,42 @@ export let button_list: buttonType[] = [
     plan_url: "src/assets/icon-arcade.svg",
     plan_name: "Arcade",
     plan_price: 9,
-    plan_time: "monthly",
+    plan_time: "mo",
   },
   {
     plan_id: 2,
     plan_url: "src/assets/icon-advanced.svg",
     plan_name: "Advanced",
     plan_price: 12,
-    plan_time: "monthly",
+    plan_time: "mo",
   },
   {
     plan_id: 3,
     plan_url: "src/assets/icon-pro.svg",
     plan_name: "Pro",
     plan_price: 15,
-    plan_time: "monthly",
+    plan_time: "mo",
   },
   {
     plan_id: 4,
     plan_url: "src/assets/icon-arcade.svg",
     plan_name: "Arcade",
     plan_price: 90,
-    plan_time: "yearly",
+    plan_time: "yr",
   },
   {
     plan_id: 5,
     plan_url: "src/assets/icon-advanced.svg",
     plan_name: "Advanced",
     plan_price: 120,
-    plan_time: "yearly",
+    plan_time: "yr",
   },
   {
     plan_id: 6,
     plan_url: "src/assets/icon-pro.svg",
     plan_name: "Pro",
     plan_price: 150,
-    plan_time: "yearly",
+    plan_time: "yr",
   },
 ];
 
@@ -87,7 +87,7 @@ export type checkboxType = {
   title: string;
   subtitle: string;
   price: number;
-  timeline: "yearly" | "monthly";
+  timeline: "yr" | "mo";
   checked: boolean;
 };
 
@@ -97,7 +97,7 @@ export let checkbox_list: checkboxType[] = [
     title: "Online service",
     subtitle: " Access to multiplayer games",
     price: 10,
-    timeline: "yearly",
+    timeline: "yr",
     checked: false,
   },
   {
@@ -105,7 +105,7 @@ export let checkbox_list: checkboxType[] = [
     title: "Larger storage",
     subtitle: "Extra 1TB of cloud save",
     price: 20,
-    timeline: "yearly",
+    timeline: "yr",
     checked: false,
   },
   {
@@ -113,7 +113,7 @@ export let checkbox_list: checkboxType[] = [
     title: "Customizable profile",
     subtitle: "Custom them on your profile",
     price: 20,
-    timeline: "yearly",
+    timeline: "yr",
     checked: false,
   },
   {
@@ -121,7 +121,7 @@ export let checkbox_list: checkboxType[] = [
     title: "Online service",
     subtitle: " Access to multiplayer games",
     price: 1,
-    timeline: "monthly",
+    timeline: "mo",
     checked: false,
   },
   {
@@ -129,7 +129,7 @@ export let checkbox_list: checkboxType[] = [
     title: "Larger storage",
     subtitle: "Extra 1TB of cloud save",
     price: 2,
-    timeline: "monthly",
+    timeline: "mo",
     checked: false,
   },
   {
@@ -137,7 +137,7 @@ export let checkbox_list: checkboxType[] = [
     title: "Customizable profile",
     subtitle: "Custom them on your profile",
     price: 2,
-    timeline: "monthly",
+    timeline: "mo",
     checked: false,
   },
 ];
@@ -165,7 +165,7 @@ export let INITIAL_STATE: Data = {
   plan_url: "src/assets/icon-arcade.svg",
   plan_name: "Arcade",
   plan_price: 9,
-  plan_time: "monthly",
+  plan_time: "mo",
   addon: addon,
 };
 
