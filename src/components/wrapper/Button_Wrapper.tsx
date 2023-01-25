@@ -1,6 +1,9 @@
 import React from "react";
 import { buttonType } from "../../Model";
 import "./Button_Wrapper.scss";
+import arcade from "../../assets/icon-arcade.svg";
+import advanced from "../../assets/icon-advanced.svg";
+import pro from "../../assets/icon-pro.svg";
 
 interface props {
   id: number;
@@ -27,6 +30,19 @@ const Button_Wrapper = ({
   handleClick,
   planID,
 }: props) => {
+
+  
+  //import and display the image
+  const displayImage = (url: string): any => {
+    if (url === "../src/assets/icon-arcade.svg") {
+      return arcade;
+    } else if (url === "../src/assets/icon-advanced.svg") {
+      return advanced;
+    } else if (url === "../src/assets/icon-pro.svg") {
+      return pro;
+    }
+  };
+
   return (
     <label className="wrapper">
       <input
@@ -39,7 +55,11 @@ const Button_Wrapper = ({
         className="buttonContainer"
         onClick={() => handleClick(id, url, name, price, time)}
       >
-        <img src={url} alt={name} className="buttonContainer__image" />
+        <img
+          src={displayImage(url)}
+          alt={name}
+          className="buttonContainer__image"
+        />
         <div className="buttonContainer__right">
           <h3 className="buttonContainer__right--name">{name}</h3>
           <p className="buttonContainer__right--price">

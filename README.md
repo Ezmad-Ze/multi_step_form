@@ -10,11 +10,11 @@
       Live
     </a>
     <span> | </span>
-    <a href="#">
+    <a href="https://github.com/Ezmad-Ze/multi_step_form">
       Solution
     </a>
    <span> | </span>
-    <a href="#">
+    <a href="https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ">
       Challenge
     </a>
   </h3>

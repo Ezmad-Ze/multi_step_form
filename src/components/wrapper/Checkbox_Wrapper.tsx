@@ -1,4 +1,5 @@
 import "./Checkbox_Wrapper.scss";
+import checkbox from "../../assets/icon-checkmark.svg";
 
 interface props {
   id: number;
@@ -17,7 +18,6 @@ const Checkbox_Wrapper = ({
   timeline,
   handleOnChange,
 }: props) => {
-
   return (
     <label className="check--label">
       <input
@@ -30,7 +30,7 @@ const Checkbox_Wrapper = ({
       <div className="checkboxContainer">
         <div className="checkboxContainer__check">
           <div className="checkboxContainer__check--square">
-            <img src="src/assets/icon-checkmark.svg" alt="checkmark" />
+            <img src={checkbox} alt="checkmark" />
           </div>
           <div className="checkboxContainer__check--label">
             <h2 className="checkboxContainer__check--label--title">{title}</h2>

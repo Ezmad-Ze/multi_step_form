@@ -37,7 +37,7 @@ const Validation = (
       ...prev,
       msgPhone: "This field is required",
     }));
-  }  else {
+  } else {
     setErrorTest((prev) => ({ ...prev, new_phone: true }));
   }
 };
