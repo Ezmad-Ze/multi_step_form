@@ -66,7 +66,6 @@ const App = () => {
       data.name.length != 0 &&
       data.email.length != 0 &&
       data.phone.length != 0 &&
-      !isNaN(Number(data.phone)) &&
       Emailreg.test(data.email)
     ) {
       setErrorTest((prev) => ({

@@ -1,6 +1,7 @@
 import "./Form_One.scss";
 import Title from "../Title";
 import Form_Wrapper from "../wrapper/Form_Wrapper";
+import { FormEvent, useEffect, useState } from "react";
 
 interface FormOne {
   name: string;
@@ -30,6 +31,25 @@ const Form_One = ({
   new_email,
   new_phone,
 }: props) => {
+  // https://tomduffytech.com/how-to-format-phone-number-in-react/
+  const formatAndSetPhone = (e: React.ChangeEvent<HTMLInputElement>): string=> {
+    const inputVal = e.target.value.replace(/ /g, ""); //remove all the empty spaces in the input
+    let inputNumbersOnly = inputVal.replace(/\D/g, ""); // Get only digits
+    if (inputNumbersOnly.length === 0) return inputNumbersOnly;
+    if (inputNumbersOnly.length === 1) return `+${inputNumbersOnly}`;
+    if (inputNumbersOnly.length <= 4)
+      return `+${inputNumbersOnly.slice(0, 1)} ${inputNumbersOnly.slice(1)}`;
+    if (inputNumbersOnly.length <= 7)
+      return `+${inputNumbersOnly.slice(0, 1)} ${inputNumbersOnly.slice(
+        1,
+        4
+      )} ${inputNumbersOnly.slice(4)}`;
+    return `+${inputNumbersOnly.slice(0, 1)} ${inputNumbersOnly.slice(
+      1,
+      4
+    )} ${inputNumbersOnly.slice(4, 7)} ${inputNumbersOnly.slice(7, 10)}`;
+  };
+
   return (
     <Form_Wrapper>
       <Title
@@ -83,7 +103,11 @@ const Form_One = ({
           className={`${new_phone ? "active" : "error-outline"}`}
           placeholder="e.g. +1 234 567 890"
           value={phone}
-          onChange={(e) => update({ phone: e.target.value })}
+          onChange={(e) => {
+            {
+              update({ phone: formatAndSetPhone(e) });
+            }
+          }}
         />
       </div>
     </Form_Wrapper>

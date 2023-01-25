@@ -37,13 +37,7 @@ const Validation = (
       ...prev,
       msgPhone: "This field is required",
     }));
-  } else if (isNaN(Number(data.phone))) {
-    setErrorTest((prev) => ({ ...prev, new_phone: false }));
-    seterrorMsg((prev) => ({
-      ...prev,
-      msgPhone: "This field requires number",
-    }));
-  } else {
+  }  else {
     setErrorTest((prev) => ({ ...prev, new_phone: true }));
   }
 };
